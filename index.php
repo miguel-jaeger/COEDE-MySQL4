@@ -12,6 +12,7 @@ switch($accion){
         require_once 'controlador/Controlador.php';
         $controlador = new Controlador();
         $controlador->eliminar($_GET['id']);
+        header('Location:index.php');
         break;
     default:
         require_once 'vista/listar.php';
