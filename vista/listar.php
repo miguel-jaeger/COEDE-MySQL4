@@ -1,7 +1,7 @@
 <?php
 require_once "controlador/Controlador.php";
 $controlador = new Controlador();
-$resulado = $controlador->listar();
+$resultado = $controlador->listar();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,6 +9,10 @@ $resulado = $controlador->listar();
 <body>
 <h1>Listado de Libros</h1>
 <a href="index.php?accion=registrar">Registrar Libro</a>
+<?php
+ if($resultado->num_rows >0){
+
+?>
 <table border="1">
 <tr><th>ID</th><th>Título</th><th>Autor</th><th>Año</th><th>Acciones</th></tr>    
 <?php while($fila = $resultado->fetch_assoc()){ ?>
@@ -24,5 +28,8 @@ $resulado = $controlador->listar();
 </tr>
 <?php } ?>
 </table>  
+<?php }else{ ?>
+ <h2>No se han registrado libros</h2>
+<?php }  ?>
 </body>
 </html>
