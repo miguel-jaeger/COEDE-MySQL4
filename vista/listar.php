@@ -29,7 +29,7 @@ $resultado = $controlador->listar();
         }
         .btn-registrar {
             display: inline-block;
-            margin-bottom: 15px;
+            margin: 20px auto;
             padding: 10px 15px;
             background: #44bd32;
             color: white;
@@ -39,11 +39,17 @@ $resultado = $controlador->listar();
             background: #4cd137;
         }
         table {
-            width: 80%;
+            width: 85%;
             margin: auto;
             border-collapse: collapse;
             background: white;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        caption {
+            caption-side: top;
+            padding: 10px;
+            font-weight: bold;
+            color: #273c75;
         }
         th {
             background: #273c75;
@@ -58,11 +64,15 @@ $resultado = $controlador->listar();
         tr:nth-child(even) {
             background: #f1f2f6;
         }
+        tr:hover {
+            background: #dcdde1;
+        }
         .acciones a {
             margin: 0 5px;
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
             color: white;
+            font-size: 0.9em;
         }
         .editar {
             background: #487eb0;
@@ -79,19 +89,30 @@ $resultado = $controlador->listar();
         .no-libros {
             text-align: center;
             margin-top: 30px;
+            padding: 15px;
+            background: #f1f2f6;
+            border: 1px solid #dcdde1;
+            border-radius: 5px;
             color: #718093;
         }
     </style>
 </head>
 <body>
     <h1>📚 Listado de Libros</h1>
+
     <div style="text-align: center;">
         <a class="btn-registrar" href="index.php?accion=registrar">➕ Registrar Libro</a>
     </div>
+
     <?php if($resultado && $resultado->num_rows > 0){ ?>
         <table>
+            <caption>Libros registrados en la base de datos</caption>
             <tr>
-                <th>ID</th><th>Título</th><th>Autor</th><th>Año</th><th>Acciones</th>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Autor</th>
+                <th scope="col">Año</th>
+                <th scope="col">Acciones</th>
             </tr>
             <?php while($fila = $resultado->fetch_assoc()){ ?>
             <tr>
@@ -107,8 +128,7 @@ $resultado = $controlador->listar();
             <?php } ?>
         </table>
     <?php } else { ?>
-        <h2 class="no-libros">⚠️ No se han registrado libros</h2>
+        <div class="no-libros">⚠️ No se han registrado libros en la base de datos</div>
     <?php } ?>
 </body>
 </html>
-
