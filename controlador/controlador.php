@@ -13,6 +13,6 @@ class Controlador {
     }
     public function eliminar($id){
         return $this->modelo->eliminar($id);
-    } 
+    }
 }
 ?>
