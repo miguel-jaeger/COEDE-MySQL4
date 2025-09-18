@@ -1,0 +1,17 @@
+Problemas:
+. Falta diseño en el formulariod e registro de libros
+. No se ha implementado la edición
+
+
+Commits:
+arlinalci-cloud(8)
+rapicrash(6)
+fabodiaboleck123-boop(3)
+claudiamcem-ctrl(1)
+
+
+
+
+
+
+
