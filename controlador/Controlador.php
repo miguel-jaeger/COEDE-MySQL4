@@ -11,6 +11,9 @@ class Controlador {
     public function registrar($titulo,$autor,$ano,$resumen){
         return $this->modelo->registrar($titulo,$autor,$ano,$resumen);
     }
+    public function actualizar($titulo,$autor,$ano,$resumen,$id){
+        return $this->modelo->actualizar($titulo,$autor,$ano,$resumen,$id);
+    }
     public function eliminar($id){
         return $this->modelo->eliminar($id);
     }
