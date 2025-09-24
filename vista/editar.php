@@ -8,6 +8,7 @@ if ($_POST) {
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
     $ano = $_POST['ano'];
+    $resumen = $_POST['resumen'];
 
     $conexion = Conexion::conectar();
     $sql = "UPDATE libros SET titulo=?, autor=?, anoPublicacion=? WHERE id=?";
@@ -40,10 +41,11 @@ $libro = $resultado->fetch_assoc();
         h1 { color: #333; text-align: center; }
         form { background: #fff; padding: 20px; border-radius: 8px; max-width: 400px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
         label { font-weight: bold; }
-        input[type=text], input[type=number] {
+        input[type=text], input[type=number],textarea {
             width: 100%; padding: 10px; margin: 8px 0;
             border: 1px solid #ccc; border-radius: 5px;
         }
+      
         input[type=submit] {
             background: #28a745; color: #fff; border: none;
             padding: 10px 15px; border-radius: 5px;
@@ -69,6 +71,9 @@ $libro = $resultado->fetch_assoc();
 
         <label for="ano">Año de Publicación:</label>
         <input type="number" id="ano" name="ano" value="<?php echo $libro['anoPublicacion']; ?>" required>
+
+        <label for="resumen">Resumen:</label>
+        <textarea id="resumen" name="resumen" rows="4" required><?php echo $libro['resumen']; ?></textarea>
 
         <input type="submit" value="Guardar Cambios">
     </form>

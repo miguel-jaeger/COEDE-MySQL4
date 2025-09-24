@@ -5,9 +5,11 @@ if ($_POST) {
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
     $ano = $_POST['ano'];
+    $resumen = $_POST['resumen'];
+
 
     $controlador = new Controlador();
-    $controlador->registrar($titulo, $autor, $ano);
+    $controlador->registrar($titulo, $autor, $ano,$resumen);
 
     header("Location: index.php");
     exit;
@@ -43,7 +45,7 @@ if ($_POST) {
             font-weight: bold;
             color: #40739e;
         }
-        input[type="text"], input[type="number"] {
+        input[type="text"], input[type="number"], textarea {
             width: 95%;
             padding: 8px;
             margin-top: 5px;
@@ -89,6 +91,9 @@ if ($_POST) {
 
             <label for="ano">Año de Publicación</label>
             <input type="number" id="ano" name="ano" required>
+
+            <label for="resumen">Resumen</label>
+            <textarea id="resumen" name="resumen" rows="4" required></textarea>
 
             <input type="submit" value="Guardar 📖">
         </form>

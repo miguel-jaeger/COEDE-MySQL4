@@ -9,10 +9,10 @@ class Modelo   {
         $sql = "SELECT * FROM libros";
         return $this->conexion->query($sql);
     }
-    public function registrar($titulo,$autor,$ano){
-        $sql = "INSERT INTO libros (titulo,autor,anoPublicacion) VALUES (?,?,?)";
+    public function registrar($titulo,$autor,$ano,$resumen){
+        $sql = "INSERT INTO libros (titulo,autor,anoPublicacion,resumen) VALUES (?,?,?,?)";
         $stmt = $this->conexion->prepare($sql);
-        $stmt->bind_param("ssi",$titulo,$autor,$ano);
+        $stmt->bind_param("ssis",$titulo,$autor,$ano,$resumen);
         return $stmt->execute();
     }
     public function eliminar($id){
