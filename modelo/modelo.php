@@ -21,5 +21,20 @@ class Modelo   {
         $stmt->bind_param("i",$id);
         return $stmt->execute();
     }
+
+    public function actualizar($id, $titulo, $autor, $ano, $resumen) {
+    // 1. Consulta SQL: Define qué campos se actualizarán y usa el 'id' para la cláusula WHERE.
+    $sql = "UPDATE libros SET titulo=?, autor=?, anoPublicacion=?, resumen=? WHERE id=?";
+    
+    $stmt = $this->conexion->prepare($sql);
+    
+    // 2. Enlace de Parámetros (bind_param): 
+    //    'ssis' son los tipos de los campos a modificar (titulo, autor, ano, resumen)
+    //    'i' es el tipo del último parámetro (el ID) en la cláusula WHERE.
+    //    La secuencia completa de tipos es: "ssisi"
+    $stmt->bind_param("ssisi", $titulo, $autor, $ano, $resumen, $id);
+    
+    return $stmt->execute();
+}
 }
 ?>
