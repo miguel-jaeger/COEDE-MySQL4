@@ -1,9 +1,0 @@
-CREATE DATABASE IF NOT EXISTS db_libros;
-USE db_libros;
-CREATE TABLE IF NOT EXISTS libros 
-(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(150) NOT NULL,
-    autor VARCHAR(100) NOT NULL,
-    anoPublicacion INT NOT NULL
-);
