@@ -11,9 +11,9 @@ if ($_POST) {
     $resumen = $_POST['resumen'];
 
     $conexion = Conexion::conectar();
-    $sql = "UPDATE libros SET titulo=?, autor=?, anoPublicacion=? WHERE id=?";
+    $sql = "UPDATE libros SET titulo=?, autor=?, anoPublicacion=?, resumen=? WHERE id=?";
     $stmt = $conexion->prepare($sql);
-    $stmt->bind_param("ssii", $titulo, $autor, $ano, $id);
+    $stmt->bind_param("ssisi", $titulo, $autor, $ano, $resumen, $id);
     $stmt->execute();
 
     header("Location: index.php");
